@@ -10,9 +10,10 @@ set -e
 . /etc/default/mba62
 
 usage() {
-    echo "Usage: $0 [-d VAL] [-k VAL]"
+    echo "Usage: $0 [-d VAL] [-k VAL] [-D] [-K]"
     echo " where -d VAL specifies display brightness"
     echo " and   -k VAL specifies keyboard brightness"
+    echo "Capitals will return current value(s)."
 }
 
 # TODO: Check that device is in $MBA62_ALL_DEVICES
@@ -23,7 +24,7 @@ then
     exit 1
 fi
 
-while getopts k:d: OPT
+while getopts k:d:KD OPT
 do
     case "${OPT}" in
         k)
@@ -33,6 +34,12 @@ do
         d)
             echo "Setting display brightness..."
             do_backlight "${MBA62_DISPLAY_DEVICE}" "${OPTARG}" || fail "Can't set display brightness."
+        ;;
+        K)
+            echo "Current keyboard backlight brightness: $(backlight_get ${MBA62_KEYBOARD_DEVICE})"
+        ;;
+        D)
+            echo "Current display brightness: $(backlight_get ${MBA62_DISPLAY_DEVICE})"
         ;;
         *)
             echo "Invalid arguments passed."
