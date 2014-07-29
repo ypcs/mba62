@@ -13,3 +13,7 @@ Changelog: debian/changelog
 Files: usr/bin/mba-backlight /
 Description: Package for adding cool bits to MacBookAir6,2.
  Blah blah.
+File: postinst
+ #!/bin/sh
+ set -e
+ addgroup --system mba-backlight
