@@ -1,0 +1,43 @@
+#!/bin/sh
+
+set -e
+
+# Script for setting MacBookAir6,2 backlight
+
+BACKLIGHT_DEVICE="/sys/class/backlight/mba6x_backlight"
+
+if [ ! -d "${BACKLIGHT_DEVICE}" ]
+then
+    echo "E: Backlight control device not found!"
+    exit 1
+fi
+
+CTRL_FILE="${BACKLIGHT_DEVICE}/brightness"
+
+CURRENT_VALUE="$(cat ${CTRL_FILE})"
+MIN_VALUE="0"
+MAX_VALUE="$(cat ${BACKLIGHT_DEVICE}/max_brightness)"
+
+echo "Current brightness: ${CURRENT_VALUE}. Maximum: ${MAX_VALUE}."
+
+NEW_VALUE="$1"
+if [ -n "${NEW_VALUE}" ]
+then
+    if [ "$(id -u)" = "0" ]
+    then
+        if [ "${NEW_VALUE}" -lt "${MIN_VALUE}" ]
+        then
+            echo "Value too small: ${NEW_VALUE} < ${MIN_VALUE}."
+        elif [ "${NEW_VALUE}" -gt "${MAX_VALUE}" ]
+        then
+            echo "Value too large: ${NEW_VALUE} > ${MAX_VALUE}."
+            exit 1
+        else
+            echo "Set brightness: ${NEW_VALUE}."
+            echo "${NEW_VALUE}" >${CTRL_FILE}
+        fi
+    else
+        echo "You must be root to change display brightness."
+        exit 1
+    fi
+fi
