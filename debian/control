@@ -12,9 +12,18 @@ Architecture: amd64
 Changelog: debian/changelog
 Files: usr/bin/mbabl /
  usr/lib/mba62/backlight.sh /
+ etc/init.d/mba62 /
+ etc/default/mba62 /
 Description: Package for adding cool bits to MacBookAir6,2.
- Blah blah.
+ * mbabl: control display/keyboard backlight
+ * init.d script: load/save brightness
 File: postinst
  #!/bin/sh
  set -e
  addgroup --system mba-backlight
+ install -d -m 0755 /var/lib/mba62
+ update-rc.d mba62 defaults
+File: prerm
+ #!/bin/sh
+ set -e
+ update-rc.d mba62 remove

@@ -1,0 +1,11 @@
+# Group which gets write access to backlight devices
+MBA62_BACKLIGHT_GROUP="mba-backlight"
+
+# Path to display backlight control directory
+MBA62_DISPLAY_DEVICE="/sys/class/backlight/mba6x_backlight"
+
+# Path to keyboard backlight control directory
+MBA62_KEYBOARD_DEVICE="/sys/class/leds/smc::kbd_backlight"
+
+# All enabled devices
+MBA62_ALL_DEVICES="${MBA62_DISPLAY_DEVICE} ${MBA62_KEYBOARD_DEVICE}"

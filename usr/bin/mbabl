@@ -6,10 +6,8 @@ set -e
 
 . /usr/lib/mba62/backlight.sh
 
-
-DISPLAY_DEVICE="/sys/class/backlight/mba6x_backlight"
-KEYBOARD_DEVICE="/sys/class/leds/smc::kbd_backlight"
-#KEYBOARD_DEVICE="/sys/devices/platform/applesmc.768/leds/smc::kbd_backlight"
+[ -r /etc/default/mba62 ] || fail "Config file not found."
+. /etc/default/mba62
 
 usage() {
     echo "Usage: $0 [-d VAL] [-k VAL]"
@@ -17,6 +15,7 @@ usage() {
     echo " and   -k VAL specifies keyboard brightness"
 }
 
+# TODO: Check that device is in $MBA62_ALL_DEVICES
 
 if [ -z "$1" ]
 then
@@ -29,11 +28,11 @@ do
     case "${OPT}" in
         k)
             echo "Setting keyboard backlight brightness..."
-            do_backlight "${KEYBOARD_DEVICE}" "${OPTARG}" || fial "Can't set keyboard backlight brightness."
+            do_backlight "${MBA62_KEYBOARD_DEVICE}" "${OPTARG}" || fail "Can't set keyboard backlight brightness."
         ;;
         d)
             echo "Setting display brightness..."
-            do_backlight "${DISPLAY_DEVICE}" "${OPTARG}" || fail "Can't set display brightness."
+            do_backlight "${MBA62_DISPLAY_DEVICE}" "${OPTARG}" || fail "Can't set display brightness."
         ;;
         *)
             echo "Invalid arguments passed."
