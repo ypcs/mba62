@@ -1,6 +1,6 @@
 Section: misc
 Priority: optional
-Homepage: https://github.com/ypcs/device-macbookair62
+Homepage: https://github.com/ypcs/mba62
 Standards-Version: 3.9.2
 
 Package: mba62
