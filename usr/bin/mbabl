@@ -4,7 +4,7 @@ set -e
 
 # Script for setting MacBookAir6,2 backlight
 
-. /usr/lib/device-macbookair62/backlight.sh
+. /usr/lib/mba62/backlight.sh
 
 
 DISPLAY_DEVICE="/sys/class/backlight/mba6x_backlight"
