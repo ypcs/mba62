@@ -1,0 +1,12 @@
+# Source: <source package name; defaults to package name>
+Section: misc
+Priority: optional
+Homepage: https://github.com/ypcs/device-macbookair62
+Standards-Version: 3.9.2
+
+Package: device-macbookair62
+Maintainer: Ville Korhonen <ville@xd.fi>
+Architecture: amd64
+Changelog: debian/changelog
+Description: Package for adding cool bits to MacBookAir6,2.
+ Blah blah.
