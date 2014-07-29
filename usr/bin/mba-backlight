@@ -23,7 +23,7 @@ echo "Current brightness: ${CURRENT_VALUE}. Maximum: ${MAX_VALUE}."
 NEW_VALUE="$1"
 if [ -n "${NEW_VALUE}" ]
 then
-    if [ "$(id -u)" = "0" ]
+    if [ -w "${CTRL_FILE}" ]
     then
         if [ "${NEW_VALUE}" -lt "${MIN_VALUE}" ]
         then
@@ -37,7 +37,7 @@ then
             echo "${NEW_VALUE}" >${CTRL_FILE}
         fi
     else
-        echo "You must be root to change display brightness."
+        echo "You have no permission to change display brightness."
         exit 1
     fi
 fi
