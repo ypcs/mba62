@@ -10,5 +10,6 @@ Depends: broadcom-sta-dkms, firmware-linux-nonfree, lm-sensors,
 Recommends: cpufrequtils, ibam
 Architecture: amd64
 Changelog: debian/changelog
+Files: usr/bin/mba-backlight /
 Description: Package for adding cool bits to MacBookAir6,2.
  Blah blah.
