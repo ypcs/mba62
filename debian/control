@@ -3,14 +3,15 @@ Priority: optional
 Homepage: https://github.com/ypcs/device-macbookair62
 Standards-Version: 3.9.2
 
-Package: device-macbookair62
+Package: mba62
 Maintainer: Ville Korhonen <ville@xd.fi>
 Depends: broadcom-sta-dkms, firmware-linux-nonfree, lm-sensors,
  macfanctld, mba6xbl-dkms, rfkill, bluez-firmware
 Recommends: cpufrequtils, ibam
 Architecture: amd64
 Changelog: debian/changelog
-Files: usr/bin/mba-backlight /
+Files: usr/bin/mbabl /
+ usr/lib/mba62/backlight.sh /
 Description: Package for adding cool bits to MacBookAir6,2.
  Blah blah.
 File: postinst
