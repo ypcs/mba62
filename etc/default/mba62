@@ -7,5 +7,9 @@ MBA62_DISPLAY_DEVICE="/sys/class/backlight/mba6x_backlight"
 # Path to keyboard backlight control directory
 MBA62_KEYBOARD_DEVICE="/sys/class/leds/smc::kbd_backlight"
 
-# All enabled devices
+# All enabled devices (TODO: Rename to backlight devices)
 MBA62_ALL_DEVICES="${MBA62_DISPLAY_DEVICE} ${MBA62_KEYBOARD_DEVICE}"
+
+# Default values for brightness
+MBA62_INITIAL_DISPLAY_BRIGHTNESS="128"
+MBA62_INITIAL_KEYBOARD_BRIGHTNESS="30"
