@@ -2,5 +2,6 @@ device-macbookair62 (1.0) UNRELEASED; urgency=medium
 
   * Initial release.
   * Added broadcom-sta-dkms to Depends. (Firmware for WiFi card.)
+  * Added firmware-linux-nonfree to Depends.
 
  -- Ville Korhonen <ville@xd.fi>  Tue, 29 Jul 2014 20:44:43 +0300

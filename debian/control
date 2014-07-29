@@ -5,7 +5,7 @@ Standards-Version: 3.9.2
 
 Package: device-macbookair62
 Maintainer: Ville Korhonen <ville@xd.fi>
-Depends: broadcom-sta-dkms
+Depends: broadcom-sta-dkms, firmware-linux-nonfree
 Architecture: amd64
 Changelog: debian/changelog
 Description: Package for adding cool bits to MacBookAir6,2.
